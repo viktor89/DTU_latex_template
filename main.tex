@@ -1,0 +1,91 @@
+\documentclass[11pt,a4paper,danish]{article}
+% Template by DTU LaTeX support group, v20090423
+\usepackage[title,titletoc,toc]{appendix}
+\usepackage[utf8]{inputenc} % Must correspond to the input encoding used by the editor
+\usepackage[danish]{babel} % Other languages, in this case Danish
+\usepackage[T1]{fontenc} % font encoding (output), use T1 for most latin languages
+\usepackage{lmodern} % vector based Computer Modern font
+\usepackage{graphicx} % for graphics
+\graphicspath{{./figures/}} % path to figures and images
+\usepackage{memhfixc}% fixes for hyperref
+%\usepackage[framed,numbered,autolinebreaks,useliterate]{mcode} %MATLAB
+\usepackage{url,textcomp}
+\usepackage{mathtools} % mathmatics
+\textwidth=16.5cm
+\textheight=24cm
+\voffset=-60pt
+\hoffset=-40pt
+\setlength{\parindent}{0cm}
+\usepackage{xcolor}
+\usepackage[plainpages=false,pdfpagelabels,pageanchor=false]{hyperref} % active links
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{epstopdf}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{todonotes}
+\usepackage{multirow}
+\usepackage{titlesec}
+\usepackage{minted}
+
+\AtBeginDocument{\renewcommand\appendixname{Appendix}}
+\AtBeginDocument{\renewcommand{\appendixtocname}{Appendikser}} % Change appendix name for the table od contents
+
+\setcounter{secnumdepth}{4}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\chead{30090 Digitale systemer}
+\rhead{Maj 2016}
+\rfoot{\thepage}
+
+\hypersetup{
+  pdfauthor={<Francesco Bigoni>},
+  pdftitle={<30090 Digitale systemer>},
+  pdfsubject={<Rapport>},
+  citebordercolor={0 1 0}, % The color of the box around citations (change to 1 1 1 to remove)
+  linkbordercolor={1 0 0}, % The color of the box around normal links
+  pagebordercolor={1 1 0}, % The color of the box around links to pages
+  urlbordercolor= {1 1 1}  % The color of the box around links to URLs
+}
+
+%\date{\today}
+
+% \includeonly{preface,testing} % Only compile those files you are working in (to save compile time, and power)
+
+% Change Chapter format
+\usepackage[Lenny]{fncychap}
+%\renewcommand{\chapnumfont}{\chaptitlefont}    % To harmonise the font sizes
+%\renewcommand{\chapnamefont}{\chaptitlefont}   % idem
+%\renewcommand{\afterchapternum}{:\quad}        % To set the line
+
+
+\begin{document}
+\pagenumbering{roman} % roman page numbering
+
+% Show Frontpage as first page
+\include{frontpage}
+
+\tableofcontents
+\cleardoublepage\pagenumbering{arabic} %Back to arabic page numbering
+
+% Include chapters:
+\input{Sections/Introduction}
+
+% Include biblio-bib
+\include{biblio/bib}
+
+%\appendix % Alphabetic chapter numbering
+%\addappheadtotoc % 'Appendix' to the table of contents
+\include{Sections/appendix}
+%\backmatter % for glossary, index, back page
+\end{document}
